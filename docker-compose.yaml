@@ -1,0 +1,23 @@
+services:
+  # XYZタイル (Mapbox vector tile を作ります)
+  xyztiles:
+    build:
+      context: docker/tippecanoe
+    depends_on:
+      geojson:
+        condition: service_completed_successfully
+    working_dir: /opt/app
+    volumes:
+      - .:/opt/app
+    command: ['make', '-j', '2', 'xyztiles']
+    
+  # シェイプファイルを GeoJSON に変換します
+  geojson:
+    build:
+      context: docker/miniconda
+    working_dir: /opt/app
+    volumes:
+      - .:/opt/app
+    command: ['make', '-j', '4', 'geojson']
+
+    
