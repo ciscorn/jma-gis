@@ -5,7 +5,6 @@ from pathlib import Path
 import geopandas as gpd
 from matplotlib import pyplot as plt
 
-
 logger = logging.getLogger(__name__)
 
 for filename in Path("srcdata/shapes").glob("*.shp"):

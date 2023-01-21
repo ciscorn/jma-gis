@@ -4,9 +4,9 @@
 # $ python3 shape_to_geojson.py src1.shp > output.json
 # $ python3 shape_to_geojson.py src1.shp src2.shp > output.json
 
-import sys
 import json
 import logging
+import sys
 from pathlib import Path
 from typing import Iterable, cast
 
@@ -29,7 +29,7 @@ def iter_features() -> Iterable[dict]:
         else:
             df.sort_values(by="regioncode", inplace=True)
 
-        for i, row in df.iterrows():
+        for _, row in df.iterrows():
             # 区域の名称は name ないしは regionname カラムから取得する
             if "name" in row:
                 name = row["name"]

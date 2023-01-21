@@ -1,6 +1,6 @@
-import sys
 import json
 import logging
+import sys
 
 import geopandas as gpd
 
@@ -14,7 +14,7 @@ def process(filenames: list[str]):
         _logger.info(f"processing {filename}")
         df = gpd.read_file(filename, encoding="utf-8")
 
-        for i, row in df.iterrows():
+        for _, row in df.iterrows():
             if row.geometry is None:
                 continue
 

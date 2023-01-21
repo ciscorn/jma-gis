@@ -10,10 +10,9 @@ from pathlib import Path
 
 from elasticsearch import Elasticsearch
 from elasticsearch.helpers import streaming_bulk
+from settings import ALIAS_NAME, es
 from shapely.geometry import MultiLineString, MultiPolygon, mapping, shape
 from shapely.geometry.polygon import orient
-
-from settings import ALIAS_NAME, es
 
 _logger = logging.getLogger(__name__)
 
